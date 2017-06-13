@@ -1,7 +1,10 @@
 #!/bin/bash
+
+EGG=" app app/business app/controllers app/models app/rest app/scripts app/templates app/views app/webservices cache cert config css data docker fonts logs media media/images runtime runtime/js themes tmp tools web web/css web/css/images web/fonts web/js web/js/runtime web/media web/media/images "
+
 function clear_tree () 
 {
-	for i in $(cat egg.txt|sort -r);
+	for i in $(echo $EGG_TREE|sort);
 	do
 		DIR=$i;
 		if [ -d $DIR ];
@@ -14,7 +17,7 @@ function clear_tree ()
  
 function create_tree ()
 {
-	for i in $(cat egg.txt|sort);
+	for i in $(echo $EGG_TREE|sort -r);
 	do
 		DIR=$i;
 		if [ ! -d $DIR ];
